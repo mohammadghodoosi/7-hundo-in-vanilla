@@ -64,17 +64,79 @@
              <div class="col-sm-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        alert('a')
+                        //step 1
+function getValue(){
+
+
+  //step2
+  let start=parseInt(document.getElementById('startValue').value)
+  let end=parseInt(document.getElementById('endValue').value)
+
+
+  //step3
+  if (Number.isInteger(start)&&Number.isInteger(end)){
+    produceNumbers(start,end)
+  }else{
+    alert('Enter integer inputs only...')
+  }
+}
+
+//step4
+function produceNumbers(start,end){
+   let numbers=[]
+   for(start;start<=end;start++){
+     numbers.push(start)
+   }
+   displayNumbers(numbers)
+}
+
+//step5
+function displayNumbers(numbers){
+   let result=''
+   let className
+   numbers.forEach((num)=>{
+     if (num%2==0)
+     {className='even'}
+     else{className='odd'}
+
+     //code inside template literal does not show itself
+     result+=`<tr>
+              <td class=${className}>${num}</td>
+              </tr>`
+   })
+   document.getElementById('result').innerHTML=result
+} 
                     </code>
                 </pre>
              </div>
-             <div class="col-sm-4 order-first order-sm-last align-items-center d-flex">
-                    dfs
+             <div class="col-sm-4 order-first order-sm-last">
+                    <div class="col pt-sm-4 pt-sm-1">
+                            <h6>step 1</h6>
+                            <p>writing code inside functions to aviod spaghetti code.</p>
+                        </div>
+                        <div class="col pt-sm-3">
+                            <h6>step 2</h6>
+                            <p>accessing input values which client had been inserted.</p>
+                        </div>
+                        <div class="col pt-sm-5 pb-sm-5">
+                            <h6>step 3</h6>
+                            <p>assessing inputs and giving client alert if they are not proper.</p>
+                        </div>
+                        <div class="col pt-sm-5 pb-sm-5">
+                            <h6>step 4</h6>
+                            <p>Generating numbers between those two inputs.</p>
+                        </div>
+                        <div class="col pt-sm-5">
+                            <h6>step 5</h6>
+                            <p>Bolding even numbers and inserting numbers in UI.</p>
+                        </div>
+                         
+                    </div>
              </div>
          </div>
        </div>
     </main>
-        <footer class="footer mt-auto py-3 bg-dark sticky-footer">
+    <footer class="footer mt-auto py-3 bg-dark sticky-footer">
         <div class="container-fluid text-light">
           <div class="row d-flex align-items-center">
            
